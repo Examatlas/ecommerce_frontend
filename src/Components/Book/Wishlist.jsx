@@ -31,7 +31,7 @@ const Wishlist = () => {
   const handleRemoveFromWishlist = async (itemId) => {
     try {
       // await axios.delete(`http://localhost:5000/api/wishlist/remove/${itemId}`);
-      await api.delete(`api/wishlist/remove/${itemId}`);
+      await axios.delete(`${API_BASE_URL}/wishlist/remove/${itemId}`);
       
       // Update the wishlist items state
       const updatedWishlistItems = wishlistItems.filter(item => item._id !== itemId);
@@ -51,7 +51,7 @@ const Wishlist = () => {
   const handleAddToCart = async (bookId) => {
     try {
       // await axios.post(`http://localhost:5000/api/cart/add`, { userId, bookId });
-      await api.post(`api/cart/add`, { userId, bookId });
+      await axios.post(`${API_BASE_URL}/cart/add`, { userId, bookId });
       toast.success("Item added to cart");
     } catch (error) {
       toast.error("Failed to add item to cart");

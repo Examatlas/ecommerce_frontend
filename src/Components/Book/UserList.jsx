@@ -35,7 +35,7 @@ const UserList = ({ calculateTotal,checkoutHandler,setBillingDetailId}) => {
     const userId = localStorage.getItem("userId");
 
     try {
-      await api.delete(`api/billing/billing/deletebilling/${userId}/${billingId}`);
+      await axios.delete(`${API_BASE_URL}/billing/billing/deletebilling/${userId}/${billingId}`);
       setUserData(userData.filter((user) => user._id !== billingId));
       setSelectedUserId(null); // Reset the selected user after delete
     } catch (error) {
@@ -53,7 +53,7 @@ const UserList = ({ calculateTotal,checkoutHandler,setBillingDetailId}) => {
     const userId = localStorage.getItem("userId");
 
     try {
-      await api.put(`api/billing/billing/updatebilling/${userId}/${editUserData._id}`, editUserData);
+      await axios.put(`${API_BASE_URL}/billing/billing/updatebilling/${userId}/${editUserData._id}`, editUserData);
       setUserData((prevData) =>
         prevData.map((user) => (user._id === editUserData._id ? editUserData : user))
       );

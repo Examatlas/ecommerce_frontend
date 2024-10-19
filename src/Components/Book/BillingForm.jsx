@@ -5,7 +5,7 @@ import axios from "axios";
 import UserList from "./UserList";
 import { useNavigate } from "react-router-dom";
 import ex2 from "../images/ex2.png";
-// import { AuthContext } from "../../Auth/AuthContext";
+import { AuthContext } from "../Auth/AuthContext";
 // import api from "../../Components/Api/Api_config"
 import API_BASE_URL from "../../Components/Config";
 // import dotenv from "dotenv";
@@ -65,8 +65,8 @@ const BillingForm = () => {
     ) {
       try {
         // Sending the POST request to create billing detail
-        const response = await api.post(
-        "api/billing/createBillingDetail",
+        const response = await axios.post(
+        `${API_BASE_URL}/billing/createBillingDetail`,
           { ...formData, userId } // Sending form data along with userId
         );
 
@@ -122,16 +122,18 @@ const BillingForm = () => {
 
   const { user } = useContext(AuthContext);
 
-// console.log(process.env.REACT_APP_RAZORPAY_API_KEY)
+// console.log(process.env.REACT_APP_RAZORPAY_API_KEY,"fgdfgdg")
   // payment gateway
   const checkoutHandler = async (amount) => {
     console.log(billingDetailId)
-    const { data: { order } } = await api.post("/api/payment/checkout", { amount , cartItems , userId , billingDetailId }); 
+    const { data: { order } } = await axios.post(`${API_BASE_URL}/payment/checkout`, { amount , cartItems , userId , billingDetailId }); 
 
     const token = localStorage.getItem('token');
 
+ const REACT_APP_RAZORPAY_API_KEY= "rzp_test_Py5aXtaPQ5j9nu"
+
     const options = {
-      key : process.env.REACT_APP_RAZORPAY_API_KEY ,
+      key : REACT_APP_RAZORPAY_API_KEY ,
       amount: order.amount,
       currency: "INR",
       name: "ExamAtlas",

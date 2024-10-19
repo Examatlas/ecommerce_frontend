@@ -30,7 +30,7 @@ const Cart = () => {
 
   const handleRemoveFromCart = async (itemId) => {
     try {
-      const response = await api.delete("api/cart/remove", {
+      const response = await axios.delete(`${API_BASE_URL}api/cart/remove`, {
         data: {
           userId,
           itemId,
@@ -49,7 +49,7 @@ const Cart = () => {
 
   const updateQuantity = async (itemId, newQuantity) => {
     try {
-      const response = await api.put("api/cart/update", {
+      const response = await axios.put(`${API_BASE_URL}/cart/update`, {
         userId,
         itemId,
         quantity: newQuantity,

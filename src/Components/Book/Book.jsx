@@ -126,7 +126,7 @@ const Book = () => {
     
       {/* Category Filter & Icons */}
       <div className="flex justify-between items-center px-8 mt-[80px]">
-        <p>hello world jhksdfhsdjkfjhskdfnh sdjkfnjlksdhfjlksdhflksdjhflksdjfflksdjfjlkdfjlksdfjlksf</p>
+    
         {/* Image */}
         <div className="flex-shrink-0">
           <img src={ex3} className="w-[120px] ml-20 h-auto" alt="Example Image" />
