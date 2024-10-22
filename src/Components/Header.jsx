@@ -18,7 +18,7 @@ const Header = () => {
     const navigate = useNavigate();
 
     const { user } = useContext(AuthContext);
-    console.log(user, "user")
+    // console.log(user, "user")
 
     const { pathname } = useLocation();
 

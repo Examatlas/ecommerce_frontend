@@ -30,7 +30,7 @@ const Cart = () => {
 
   const handleRemoveFromCart = async (itemId) => {
     try {
-      const response = await axios.delete(`${API_BASE_URL}api/cart/remove`, {
+      const response = await axios.delete(`${API_BASE_URL}/cart/remove`, {
         data: {
           userId,
           itemId,

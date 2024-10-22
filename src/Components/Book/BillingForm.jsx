@@ -122,7 +122,7 @@ const BillingForm = () => {
 
   const { user } = useContext(AuthContext);
 
-// console.log(process.env.REACT_APP_RAZORPAY_API_KEY,"fgdfgdg")
+
   // payment gateway
   const checkoutHandler = async (amount) => {
     console.log(billingDetailId)
@@ -159,7 +159,6 @@ const BillingForm = () => {
     const razor = new window.Razorpay(options);
     razor.open();
   }
-
 
   return (
     <div className="flex flex-col md:flex-row mt-[120px] mx-auto max-w-7xl p-8">

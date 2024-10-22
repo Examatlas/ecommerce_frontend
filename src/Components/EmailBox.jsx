@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import axios from "axios";
+import axios from "axios";
 import { toast } from "react-hot-toast"; // Assuming you're using react-hot-toast for notifications
 import API_BASE_URL from "../Components/Config"
 
@@ -18,17 +18,20 @@ const EmailBox = () => {
             setError('');
             try {
                 setLoading(true);
-                const response = await axios.post(`${API_BASE_URL}/auth/forgotpassword`, { email });
-                
+                const response = await axios.post(
+                    "http://localhost:5000/api/user/forgotpassword", 
+                    { email }
+                );
+
                 if (response.data.status) {
                     toast.success("Password reset link sent. Please check your email.");
-                    
                 } else {
                     toast.error(response.data.message);
                 }
-                setEmail('')
+                setEmail('');
             } catch (error) {
-                toast.error("Something went wrong. Please try again later.");
+                console.error("Error:", error);
+                toast.error(error.response?.data?.message || "Something went wrong. Please try again.");
             } finally {
                 setLoading(false);
             }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom'; // Assuming you're using react-router for routing
-// import axios from 'axios';
+import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import API_BASE_URL from "../Components/Config";
