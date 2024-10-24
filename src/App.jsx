@@ -25,6 +25,7 @@ import Footer from "./Components/Footer";
 import EmailBox from "./Components/EmailBox";
 import ResetPasswordForm from "./Components/ResetPasswordForm";
 import { AuthProvider } from "./Components/Auth/AuthContext";
+import BookDetail from "./Components/Book/BookDetail";
 
 function App() {
   return (
@@ -49,6 +50,8 @@ function App() {
             {/* <Route path="ordertrack" element={<OrderTrack/>}/> */}
 
             <Route path="/OrderHistory" element={<OrderHistory/>}/>
+
+            <Route path="/bookdetail/:id" element={<BookDetail/>}/>
            
             {/* <Route
               path="/livecourse/upsc-live-class"

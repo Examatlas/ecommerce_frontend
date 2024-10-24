@@ -120,6 +120,9 @@ const Book = () => {
     setShowEach(!showEach)
   }
 
+  const handleBoxClick = (id) => {
+    navigate(`/bookdetail/${id}`);  // Navigate to the detail page with the ID
+  };
 
   return (
     <>
@@ -183,7 +186,8 @@ const Book = () => {
         <div className="flex flex-wrap justify-center gap-5 mt-7 mr-14 mb-10">
           {categoryData.length > 0 ? (
             (showAll ? categoryData : categoryData.slice(0, 6)).map((dataItem) => (
-              <div key={dataItem._id} className="max-w-sm rounded overflow-hidden shadow-lg bg-white p-4 border">
+              <div key={dataItem._id} className="max-w-sm rounded overflow-hidden shadow-lg bg-white p-4 border"
+               onClick={() => handleBoxClick(dataItem._id)}>
                 <div className="h-48 mb-4 flex justify-center items-center bg-gray-200">
                   <img
                     src={dataItem.imageUrl || "https://via.placeholder.com/150"}
@@ -221,7 +225,8 @@ const Book = () => {
         {filteredBooks.length > 0 ? (
           // (showAll ? categoryData : categoryData.slice(0, 6)).map((dataItem) => (
           (showEach ? filteredBooks : filteredBooks.slice(0, 8)).map((dataItem) => (
-            <div key={dataItem._id} className="max-w-sm rounded overflow-hidden shadow-lg bg-white p-4 border relative w-[350px] mb-10">
+            <div key={dataItem._id} className="max-w-sm rounded overflow-hidden shadow-lg bg-white p-4 border relative w-[350px] mb-10"
+>
               {/* Wishlist Icon */}
               <button
                 onClick={() => toggleWishlist(dataItem._id)}
@@ -231,7 +236,7 @@ const Book = () => {
               </button>
 
               {/* Image Section */}
-              <div className="h-48 mb-4 flex justify-center items-center bg-gray-200">
+              <div className="h-48 mb-4 flex justify-center items-center bg-gray-200" >
                 <img
                   src={dataItem.imageUrl || "https://via.placeholder.com/150"}
                   alt={dataItem.title}
@@ -240,7 +245,7 @@ const Book = () => {
               </div>
 
               {/* Book Details */}
-              <div className="px-6 py-4">
+              <div className="px-6 py-4" onClick={() => handleBoxClick(dataItem._id)}>
                 <div className="font-bold text-xl mb-2">{dataItem.title}</div>
                 <p className="text-gray-700 text-base"><strong>Author:</strong> {dataItem.author}</p>
                 {/* <p className="text-gray-700 text-base"><strong>Category:</strong> {dataItem.category}</p> */}

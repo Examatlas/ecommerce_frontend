@@ -71,17 +71,23 @@ const Header = () => {
                 >
                     <div className="flex flex-col lg:flex-row justify-center lg:justify-end items-center gap-5 h-full">
 
+                        <Link
+                            to={"/book"}
+                            className={`${pathname === "/book" ? "text-blue-400 font-bold" : ""
+                                }  text-lg lg:text-sm cursor-pointer`}
+                            onClick={toggleHambergerMenu}
+                        >
+                            HOME
+                        </Link>
+
                         Best Selllers
 
                         <Link
-
                         >
                             New Arrivals
-
                         </Link>
 
                         <Link
-
                         >
                             YT Educators
                         </Link>
@@ -98,15 +104,6 @@ const Header = () => {
 
                         >
                             Brand Store
-                        </Link>
-
-                        <Link
-                            to={"/book"}
-                            className={`${pathname === "/book" ? "text-blue-400 font-bold" : ""
-                                }  text-lg lg:text-sm cursor-pointer`}
-                            onClick={toggleHambergerMenu}
-                        >
-                            BOOK
                         </Link>
 
 
